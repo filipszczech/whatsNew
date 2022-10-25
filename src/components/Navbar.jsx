@@ -10,11 +10,11 @@ export const Navbar = () => {
             </Link>
         </div>
         <div className='hidden sm:flex justify-between gap-12'>
-            <div className='py-1 px-5 text-center'>Polska</div>
-            <div className='py-1 px-5 text-center'>Losowy news</div>
-            <div className='py-1 px-5 text-center'>O projekcie</div>
+            <div className='py-1 mx-5 text-center hover:scale-105 my-hover-effect'>Polska</div>
+            <div className='py-1 mx-5 text-center hover:scale-105 my-hover-effect'>Losowy news</div>
+            <div className='py-1 mx-5 text-center hover:scale-105 my-hover-effect'>O projekcie</div>
             <div>
-                <button className='py-1 px-5 text-center bg-yellow-400 text-gray-100 rounded-md'>Eksploruj</button>
+                <button className='py-1 px-5 text-center text-gray-100 rounded-md my-yellow-bg hover:scale-105 my-hover-effect'>Eksploruj</button>
             </div>
         </div>
     </div>

@@ -1,0 +1,14 @@
+.my-navy-font{
+    color: #000A67;
+}
+
+.my-yellow-bg{
+    background-color: #FFB703;
+}
+
+.my-hover-effect{
+    cursor: pointer;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
