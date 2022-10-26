@@ -12,3 +12,21 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
 }
+
+.my-bg-triangle{
+    /* clip-path: polygon(0 0, 100% 0, 86% 100%, 0% 100%); */
+    background: #dbcefa;
+    opacity: 0.2;
+    background: linear-gradient(90deg, #d1ecff 75%, rgba(255,255,255,1) 100%);
+    /* d1ecff */
+}
+
+.logo{
+    z-index: 100;
+    color: "#000A67";
+    fill: "#000A67" !important;
+}
+
+.my-navbar{
+        z-index: 50 !important;
+}
