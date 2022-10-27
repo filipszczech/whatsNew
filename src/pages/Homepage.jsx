@@ -1,8 +1,13 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 export const Homepage = () => {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 w-full px-3 sm:px-5 pb-3 h-5/6'>
+    <motion.div 
+     className='grid grid-cols-1 md:grid-cols-2 w-full px-3 sm:px-5 pb-3 h-5/6'
+     initial={{ opacity: 0 }}
+     animate={{ opacity: 1 }}
+     exit={{ opacity: 0 }}>
       <div className='absolute top-0 left-0 h-full w-1/2 opacity-50 my-bg-triangle z-0'></div>
       <div className='my-auto flex flex-col space-y-12 z-10'>
         <div className='mx-auto w-3/5 text-center'>
@@ -35,6 +40,6 @@ export const Homepage = () => {
       <div className='mt-20'>
         <img src={require('../assets/images/bg-ilustration.jpg')} alt="homepage-main-img" />
       </div>
-    </div>
+    </motion.div>
   )
 }
