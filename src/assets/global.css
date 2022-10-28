@@ -30,3 +30,11 @@
 .my-navbar{
         z-index: 50 !important;
 }
+
+.my-navy-border {
+    border-color: #000A67;
+}
+
+.my-navy-border:focus {
+    border-color: #FFB703;
+}
