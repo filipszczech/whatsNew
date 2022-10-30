@@ -1,27 +1,56 @@
 import React from 'react'
 import { useState } from 'react'
-import loading_img from '../assets/images/404_img.jpg';
-import search_img from '../assets/images/search.jpg';
+import axios from 'axios';
 
-function ExploreForm() {
+
+function ExploreForm({ isLoading, setIsLoading }) {
   const [ keyWord, setKeyWord ] = useState('')
   const [ category, setCategory ] = useState('arts')
   const [ country, setCountry ] = useState('english')
   const [ resultsCount, setResultsCount ] = useState('10')
-  const [ isLoading, setIsLoading ] = useState(false)
+  const [ articles, setArticles ] = useState([])
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const loading_div = document.getElementById('loading_div')
     const searchParams = { keyWord, category, country, resultsCount }
     console.log(searchParams)
-    loading_div.innerHTML= `<img src="${loading_img}" alt='homepage-main-img' />`
     setIsLoading(true)
+    fetchFilteredNews()
     setTimeout(() => {
-        loading_div.innerHTML= `<img src="${search_img}" alt='homepage-main-img' />`
         setIsLoading(false)
       }, 3000);
   }
+
+  const fetchFilteredNews = async () => {
+	// const config = {
+	// 	headers: {
+    //         "resultType": "articles",
+    //         "articlesSortBy": "rel",
+    //         "articlesCount": "10",
+    //         "lang": "eng",
+    //         "includeArticleCategories": true,
+    //         "articleBodyLen": -1,
+    //         "apiKey": "da1595a0-0013-444e-8eb4-2e30d17dbe27"
+	// 	}
+	// };
+	const res = await axios.post(
+		`https://eventregistry.org/api/v1/article/getArticles?`
+         + `resultType=articles`
+         + `&keyword=Bitcoin`
+         + `&keyword=Ethereum`
+         + `&keyword=Litecoin`
+         + `&keywordOper=or`
+         + `&lang=eng`
+         + `&articlesSortBy=date`
+         + `&includeArticleConcepts=true`
+         + `&includeArticleCategories=true`
+         + `&articleBodyLen=300`
+         + `&articlesCount=10`
+         + `&apiKey=da1595a0-0013-444e-8eb4-2e30d17dbe27`
+	);
+    setArticles(res.data.results)
+	console.log(articles)
+};
 
   return (
     <div className='w-3/4 mx-auto my-auto z-10'>

@@ -38,3 +38,8 @@
 .my-navy-border:focus {
     border-color: #FFB703;
 }
+
+.bg-test{
+    left: 10%;
+    top: 10%;
+}
