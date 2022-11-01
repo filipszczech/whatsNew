@@ -43,3 +43,7 @@
     left: 10%;
     top: 10%;
 }
+
+.news-list{
+    overflow-y: scroll !important;
+}

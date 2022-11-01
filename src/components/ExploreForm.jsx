@@ -3,14 +3,16 @@ import { useState } from 'react'
 import axios from 'axios';
 
 
-function ExploreForm({ isLoading, setIsLoading }) {
+function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoaded, setDataLoaded }) {
   const [ keyWord, setKeyWord ] = useState('')
   const [ category, setCategory ] = useState('arts')
   const [ country, setCountry ] = useState('english')
   const [ resultsCount, setResultsCount ] = useState('10')
-  const [ articles, setArticles ] = useState([])
 
   const handleSubmit = (e) => {
+    if(dataLoaded){
+        setDataLoaded(false)
+    }
     e.preventDefault()
     const searchParams = { keyWord, category, country, resultsCount }
     console.log(searchParams)
@@ -18,6 +20,7 @@ function ExploreForm({ isLoading, setIsLoading }) {
     fetchFilteredNews()
     setTimeout(() => {
         setIsLoading(false)
+        setDataLoaded(true)
       }, 3000);
   }
 
@@ -48,7 +51,7 @@ function ExploreForm({ isLoading, setIsLoading }) {
          + `&articlesCount=10`
          + `&apiKey=da1595a0-0013-444e-8eb4-2e30d17dbe27`
 	);
-    setArticles(res.data.results)
+    setArticles(res.data.articles.results)
 	console.log(articles)
 };
 

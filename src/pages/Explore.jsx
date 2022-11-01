@@ -1,10 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import ExploreForm from '../components/ExploreForm'
+import ExploreContent from '../components/ExploreContent'
 import { useState } from 'react'
 
 export const Explore = () => {
-    const [ isLoading, setIsLoading ] = useState(false)
+    const [ isLoading, setIsLoading ] = useState(false)       //waiting for data to load
+    const [ dataLoaded, setDataLoaded ] = useState(false)     //setting if data is loaded
+    const [ articles, setArticles ] = useState([])            //filling var articles with data from api
     
     return (
       <motion.div 
@@ -13,16 +16,23 @@ export const Explore = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}>
         <div className='absolute top-0 left-0 h-full w-1/2 opacity-50 my-bg-triangle z-0'></div>
-          <ExploreForm isLoading={isLoading} setIsLoading={setIsLoading} />
-        <div className='flex flex-col space-y-0 justify-center'>
-          <div id="loading_div" className='w-2/3 h-1/2 mx-auto flex justify-center'>
-            { !isLoading && <img className='h-4/5 my-auto object-cover' src={require('../assets/images/search.jpg')} alt='homepage-main-img' /> }
-            { isLoading && <img className='h-full object-cover' src={require('../assets/images/404_img.jpg')}  alt='homepage-main-img' /> }
-          </div>
-          <div className='w-full text-center'>
-            <p className='my-navy-font text-2xl sm:text-3xl font-semibold'>Tu się pojawią wyniki</p>
-          </div>
-        </div>
+          
+          <ExploreForm 
+              isLoading={isLoading} 
+              setIsLoading={setIsLoading} 
+              articles = { articles } 
+              setArticles = { setArticles } 
+              dataLoaded = { dataLoaded } 
+              setDataLoaded = { setDataLoaded }
+          />
+          
+          <ExploreContent 
+              isLoading={ isLoading } 
+              dataLoaded = { dataLoaded } 
+              setDataLoaded = { setDataLoaded } 
+              articles = { articles }
+          />
+        
       </motion.div>
     )
   }
