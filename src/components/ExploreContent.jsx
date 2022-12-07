@@ -29,8 +29,8 @@ function ExploreContent( props ) {
     else{
         return (
                 <div className='p-5'>
-                    <div className='mx-auto h-auto overflow-y-scroll news-list'>
-                        <ExploreNewsList articles = { props.articles } />
+                    <div className='mx-auto overflow-y-auto news-list' style={{ height: '80vh' }}>
+                        <ExploreNewsList articles = { props.articles } setSingleArticle = { props.setSingleArticle } setIsModalOpen = { props.setIsModalOpen } />
                     </div>
                 </div>
         )

@@ -1,13 +1,17 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useState } from 'react'
+
 import ExploreForm from '../components/ExploreForm'
 import ExploreContent from '../components/ExploreContent'
-import { useState } from 'react'
+import ArticleModal from '../components/ArticleModal'
 
 export const Explore = () => {
     const [ isLoading, setIsLoading ] = useState(false)       //waiting for data to load
+    const [ isModalOpen, setIsModalOpen ] = useState(false)       //waiting for data to load
     const [ dataLoaded, setDataLoaded ] = useState(false)     //setting if data is loaded
     const [ articles, setArticles ] = useState([])            //filling var articles with data from api
+    const [ singleArticle, setSingleArticle ] = useState()            //filling var articles with data from api
     
     return (
       <motion.div 
@@ -15,7 +19,6 @@ export const Explore = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}>
-        <div className='absolute top-0 left-0 h-full w-1/2 opacity-50 my-bg-triangle z-0'></div>
           
           <ExploreForm 
               isLoading={isLoading} 
@@ -31,6 +34,14 @@ export const Explore = () => {
               dataLoaded = { dataLoaded } 
               setDataLoaded = { setDataLoaded } 
               articles = { articles }
+              setIsModalOpen = { setIsModalOpen }
+              setSingleArticle = { setSingleArticle }
+          />
+
+          <ArticleModal
+              isModalOpen = { isModalOpen }
+              setIsModalOpen = { setIsModalOpen }
+              article = { singleArticle }
           />
         
       </motion.div>

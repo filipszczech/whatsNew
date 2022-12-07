@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Router>
       <div className='h-screen w-screen p-3 sm:p-5'  style={{background: "#000A67"}}>
-          <div class="bg-white w-full h-full rounded-md relative overflow-hidden">
+          <div className="bg-white w-full h-full rounded-md relative overflow-hidden">
             <Navbar />
 
             <AnimatedRoutes />

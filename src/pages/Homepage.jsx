@@ -8,8 +8,7 @@ export const Homepage = () => {
      initial={{ opacity: 0 }}
      animate={{ opacity: 1 }}
      exit={{ opacity: 0 }}>
-      <div className='absolute top-0 left-0 h-full w-1/2 opacity-50 my-bg-triangle z-0'></div>
-      <div className='my-auto flex flex-col space-y-12 z-10'>
+      <div className='my-auto flex flex-col space-y-12 z-10 py-12 rounded-md mx-14 border-4 my-navy-border shadow-lg'>
         <div className='mx-auto w-3/5 text-center'>
           <h1 className='my-navy-font text-2xl sm:text-3xl md:text-4xl font-bold'>
               Newsy z całego świata zebrane w jednym miejscu

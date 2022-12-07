@@ -6,7 +6,7 @@ import axios from 'axios';
 function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoaded, setDataLoaded }) {
   const [ keyWord, setKeyWord ] = useState('')
   const [ category, setCategory ] = useState('arts')
-  const [ country, setCountry ] = useState('english')
+  const [ country, setCountry ] = useState('eng')
   const [ resultsCount, setResultsCount ] = useState('10')
 
   const handleSubmit = (e) => {
@@ -21,7 +21,7 @@ function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoade
     setTimeout(() => {
         setIsLoading(false)
         setDataLoaded(true)
-      }, 3000);
+      }, 2000);
   }
 
   const fetchFilteredNews = async () => {
@@ -39,16 +39,17 @@ function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoade
 	const res = await axios.post(
 		`https://eventregistry.org/api/v1/article/getArticles?`
          + `resultType=articles`
-         + `&keyword=Bitcoin`
-         + `&keyword=Ethereum`
-         + `&keyword=Litecoin`
+         + `&keyword=${keyWord}`
+         + `&categoryUri=${category}` 
          + `&keywordOper=or`
-         + `&lang=eng`
+         + `&lang=${country}`
          + `&articlesSortBy=date`
          + `&includeArticleConcepts=true`
          + `&includeArticleCategories=true`
          + `&articleBodyLen=300`
-         + `&articlesCount=10`
+         + `&articlesCount=${resultsCount}`
+         + `&isDuplicateFilter=skipDuplicates`
+         + `&articlesSortBy=rel`
          + `&apiKey=da1595a0-0013-444e-8eb4-2e30d17dbe27`
 	);
     setArticles(res.data.articles.results)
@@ -78,9 +79,11 @@ function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoade
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
                     >
-                        <option value="arts">sztuka</option>
-                        <option value="business">biznes</option>
-                        <option value="computers">IT</option>
+                        <option value="dmoz/Computers">IT</option>
+                        <option value="dmoz/Arts">sztuka</option>
+                        <option value="dmoz/Business">biznes</option>
+                        <option value="news/Politics">Polityka</option>
+                        <option value="dmoz/Arts/Music">Muzyka</option>
                     </select>
                 </div>
                 <div className='w-full'>
@@ -91,10 +94,10 @@ function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoade
                         value={country}
                         onChange={(e) => setCountry(e.target.value)}
                     >
-                        <option value="english">angielski</option>
-                        <option value="polish">polski</option>
-                        <option value="spanish">hiszpański</option>
-                        <option value="german">niemiecki</option>
+                        <option value="eng">angielski</option>
+                        <option value="pol">polski</option>
+                        <option value="spa">hiszpański</option>
+                        <option value="deu">niemiecki</option>
                     </select>
                 </div>
                 <div className='w-full'>

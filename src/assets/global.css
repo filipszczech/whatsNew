@@ -35,6 +35,9 @@
     border-color: #000A67;
 }
 
+.my-navy-bg {
+    background-color: #000A67;
+}
 .my-navy-border:focus {
     border-color: #FFB703;
 }
@@ -46,4 +49,19 @@
 
 .news-list{
     overflow-y: scroll !important;
+}
+
+::-webkit-scrollbar{
+    width: 1em;
+}
+
+::-webkit-scrollbar-track{
+    background: white;
+    border-radius: 100vw;
+    margin-block: 0.2em;
+}
+
+::-webkit-scrollbar-thumb{
+    background: rgb(189, 195, 212);
+    border-radius: 100vw;
 }
