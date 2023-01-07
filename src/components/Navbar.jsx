@@ -10,7 +10,7 @@ export const Navbar = () => {
         </div>
         <div className='hidden sm:flex justify-between gap-12'>
             <div onClick={() => { navigate("/polska")}} className='py-1 mx-5 text-center hover:scale-105 my-hover-effect'>Polska</div>
-            <div onClick={() => { navigate("/random")}} className='py-1 mx-5 text-center hover:scale-105 my-hover-effect'>Losowy news</div>
+            <div onClick={() => { navigate("/random")}} className='py-1 mx-5 text-center hover:scale-105 my-hover-effect'>News API</div>
             <div onClick={() => { navigate("/o-projekcie")}} className='py-1 mx-5 text-center hover:scale-105 my-hover-effect'>O projekcie</div>
             <div>
                 <button onClick={() => { navigate("/odkrywaj")}} className='py-1 px-5 text-center text-gray-100 rounded-md my-yellow-bg hover:scale-105 my-hover-effect'>Eksploruj</button>

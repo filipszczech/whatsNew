@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoaded, setDataLoaded }) {
   const [ keyWord, setKeyWord ] = useState('')
-  const [ category, setCategory ] = useState('arts')
+  const [ category, setCategory ] = useState('news/Politics')
   const [ country, setCountry ] = useState('eng')
   const [ resultsCount, setResultsCount ] = useState('10')
 
@@ -14,8 +14,6 @@ function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoade
         setDataLoaded(false)
     }
     e.preventDefault()
-    const searchParams = { keyWord, category, country, resultsCount }
-    console.log(searchParams)
     setIsLoading(true)
     fetchFilteredNews()
     setTimeout(() => {
@@ -25,35 +23,27 @@ function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoade
   }
 
   const fetchFilteredNews = async () => {
-	// const config = {
-	// 	headers: {
-    //         "resultType": "articles",
-    //         "articlesSortBy": "rel",
-    //         "articlesCount": "10",
-    //         "lang": "eng",
-    //         "includeArticleCategories": true,
-    //         "articleBodyLen": -1,
-    //         "apiKey": "da1595a0-0013-444e-8eb4-2e30d17dbe27"
-	// 	}
-	// };
-	const res = await axios.post(
-		`https://eventregistry.org/api/v1/article/getArticles?`
-         + `resultType=articles`
-         + `&keyword=${keyWord}`
-         + `&categoryUri=${category}` 
-         + `&keywordOper=or`
-         + `&lang=${country}`
-         + `&articlesSortBy=date`
-         + `&includeArticleConcepts=true`
-         + `&includeArticleCategories=true`
-         + `&articleBodyLen=300`
-         + `&articlesCount=${resultsCount}`
-         + `&isDuplicateFilter=skipDuplicates`
-         + `&articlesSortBy=rel`
-         + `&apiKey=da1595a0-0013-444e-8eb4-2e30d17dbe27`
-	);
-    setArticles(res.data.articles.results)
-	console.log(articles)
+    try {
+        const res = await axios.post(
+            `https://eventregistry.org/api/v1/article/getArticles?`
+            + `resultType=articles`
+            + `&keyword=${keyWord}`
+            + `&categoryUri=${category}` 
+            + `&keywordOper=or`
+            + `&lang=${country}`
+            + `&articlesSortBy=date`
+            + `&includeArticleConcepts=true`
+            + `&includeArticleCategories=true`
+            + `&articleBodyLen=300`
+            + `&articlesCount=${resultsCount}`
+            + `&isDuplicateFilter=skipDuplicates`
+            + `&apiKey=da1595a0-0013-444e-8eb4-2e30d17dbe27`
+        );
+        setArticles(res.data.articles.results)
+    }
+    catch(error) {
+        console.log(`error: ${error}`);
+    }
 };
 
   return (
@@ -80,8 +70,8 @@ function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoade
                         onChange={(e) => setCategory(e.target.value)}
                     >
                         <option value="dmoz/Computers">IT</option>
-                        <option value="dmoz/Arts">sztuka</option>
-                        <option value="dmoz/Business">biznes</option>
+                        <option value="dmoz/Arts">Sztuka</option>
+                        <option value="dmoz/Business">Biznes</option>
                         <option value="news/Politics">Polityka</option>
                         <option value="dmoz/Arts/Music">Muzyka</option>
                     </select>

@@ -7,7 +7,7 @@ function ExploreContent( props ) {
             return (
                 <div className='flex flex-col space-y-0 justify-center'>
                     <div className='w-2/3 h-1/2 mx-auto flex justify-center'>
-                        <img className='h-4/5 my-auto object-cover' src={require('../assets/images/search.jpg')} alt='homepage-main-img' />
+                        <img className='h-4/5 my-auto object-cover' src={require('../assets/images/search.jpg')} alt='content-img' />
                     </div>
                     <div className='w-full text-center'>
                         <p className='my-navy-font text-2xl sm:text-3xl font-semibold'>Tu pojawią się wyniki</p>
@@ -17,8 +17,8 @@ function ExploreContent( props ) {
         else if(props.isLoading)
             return (
                 <div className='flex flex-col space-y-0 justify-center'>
-                    <div className='w-2/3 h-1/2 mx-auto flex justify-center'>
-                        <img className='h-full object-cover' src={require('../assets/images/404_img.jpg')}  alt='homepage-main-img' />
+                    <div className='w-2/3 h-1/2 mx-auto flex justify-center px-28 py-28'>
+                        <img className='' src={require('../assets/images/spinner.gif')}  alt='spinner-img' />
                     </div>
                     <div className='w-full text-center'>
                         <p className='my-navy-font text-2xl sm:text-3xl font-semibold'>Pracujemy nad tym</p>
@@ -28,8 +28,8 @@ function ExploreContent( props ) {
     }
     else{
         return (
-                <div className='p-5'>
-                    <div className='mx-auto overflow-y-auto news-list' style={{ height: '80vh' }}>
+                <div className='px-5 pt-5 lg:pt-10'>
+                    <div className='mx-auto overflow-y-auto news-list' style={{ height: '75vh' }}>
                         <ExploreNewsList articles = { props.articles } setSingleArticle = { props.setSingleArticle } setIsModalOpen = { props.setIsModalOpen } />
                     </div>
                 </div>

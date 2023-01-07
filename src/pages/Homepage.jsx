@@ -4,17 +4,17 @@ import { motion } from 'framer-motion'
 export const Homepage = () => {
   return (
     <motion.div 
-     className='grid grid-cols-1 md:grid-cols-2 w-full px-3 sm:px-5 pb-3 h-5/6'
+     className='grid grid-cols-1 md:grid-cols-2 w-full px-3 sm:px-5 pb-3 h-auto md:h-5/6 overflow-y-scroll'
      initial={{ opacity: 0 }}
      animate={{ opacity: 1 }}
      exit={{ opacity: 0 }}>
-      <div className='my-auto flex flex-col space-y-12 z-10 py-12 rounded-md mx-14 border-4 my-navy-border shadow-lg'>
-        <div className='mx-auto w-3/5 text-center'>
-          <h1 className='my-navy-font text-2xl sm:text-3xl md:text-4xl font-bold'>
-              Newsy z całego świata zebrane w jednym miejscu
+      <div className='my-auto flex flex-col space-y-12 z-10 py-12 mx-14 lg:mx-24 border-2 border-gray-100 shadow-xl hover:shadow-2xl transiton-all duration-700 ease-in-out rounded-xl'>
+        <div className='mx-auto w-3/4'>
+          <h1 className='my-navy-font text-2xl sm:text-3xl md:text-4xl font-medium'>
+              Newsy z całego świata <br></br>zebrane w jednym miejscu
           </h1>
         </div>
-        <div className='grid grid-cols-2 gap-6 my-navy-font w-2/3 mx-auto'>
+        {/* <div className='grid grid-cols-2 gap-6 my-navy-font w-2/3 mx-auto'>
             <div className='text-center'>
                 <p className='text-2xl sm:text-3xl md:text-4xl font-bold'>12</p>
                 <p className='text-sm md:text-base lg:text-xl font-semibold'>języków z całego globu</p>
@@ -31,9 +31,9 @@ export const Homepage = () => {
                 <p className='text-2xl sm:text-3xl md:text-4xl font-bold'>0</p>
                 <p className='text-sm md:text-base lg:text-xl font-semibold'>dopasowań i filtrów</p>
             </div>
-        </div>
-        <div className='mx-auto'>
-            <button className='py-2 px-5 text-center text-white rounded-md text-2xl hover:scale-105 my-hover-effect my-yellow-bg'>Rozpocznij przeglądanie</button>
+        </div> */}
+        <div className='mx-auto w-3/4'>
+            <button className='py-3 px-auto w-1/2 opacity-90 text-center text-white font-medium shadow-lg text-lg hover:scale-105 my-hover-effect my-yellow-bg rounded-sm border-gray-200'>Rozpocznij przeglądanie</button>
         </div>
       </div>
       <div className='mt-20'>

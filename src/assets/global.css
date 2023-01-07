@@ -42,6 +42,14 @@
     border-color: #FFB703;
 }
 
+.my-yellow-border {
+    border-color: #FFB703;
+}
+
+.my-yellow-text {
+    color: #FFB703;
+}
+
 .bg-test{
     left: 10%;
     top: 10%;
