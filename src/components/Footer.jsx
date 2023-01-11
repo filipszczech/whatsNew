@@ -22,7 +22,7 @@ export const Footer = () => {
       </div>
       <div class="hidden md:flex text-sm sm:text-base xl:text-lg text-gray-700 font-semibold my-navy-font">
         <a href="https://www.newsapi.ai/" rel="noreferrer noreferrer" target="_blank"><p className='mr-8 hover:scale-105 my-hover-effect'>News Api</p></a>
-        <span className='hover:scale-105 my-hover-effect'>kontakt</span>
+        <span className='hover:scale-105 my-hover-effect'>wersja Vue</span>
       </div>
     </div>
   )

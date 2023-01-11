@@ -21,7 +21,7 @@ export default function ArticleModal(props) {
                     </div>
                 </div>
                 <div className='h-3/5 overflow-y-auto'>
-                    <p className='text-base text-justify mt-5'>{ props.article.body }</p>
+                    <p className='text-base text-justify mt-5 mr-2'>{ props.article.body }</p>
                 </div>
                 <div>
                     <a href={ props.article.url } target="_blank" rel="noopener noreferrer"><button className='py-1 px-5 text-center text-gray-100 rounded-md my-yellow-bg hover:scale-105 my-hover-effect absolute right-5 bottom-5'>Przejdź do źródła</button></a>

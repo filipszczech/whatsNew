@@ -47,7 +47,7 @@ function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoade
 };
 
   return (
-    <div className='w-3/4 mx-auto my-auto z-10'>
+    <div className='w-5/6 lg:w-3/4 mx-auto my-auto z-10'>
         <form onSubmit={handleSubmit}>
             <p className='my-navy-font text-2xl sm:text-3xl font-semibold mb-8'>Jakie wiadomości Cię interesują?</p>
             <div className='grid grid-cols-2 gap-5'>
