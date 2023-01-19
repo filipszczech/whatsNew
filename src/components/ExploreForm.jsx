@@ -52,9 +52,9 @@ function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoade
             <p className='my-navy-font text-2xl sm:text-3xl font-semibold mb-8'>Jakie wiadomości Cię interesują?</p>
             <div className='grid grid-cols-2 gap-5'>
                 <div className='w-full'>
-                    <label>Słowo klucz:</label>
+                    <label for='key-word'>Słowo klucz:</label>
                     <br></br>
-                    <input 
+                    <input id='key-word'
                         className='border-2 rounded-md my-navy-border bg-transparent p-2 w-full' 
                         type="text"
                         value={keyWord}
@@ -62,9 +62,9 @@ function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoade
                     />
                 </div>
                 <div className='w-full'>
-                    <label>kategoria:</label>
+                    <label for='category'>kategoria:</label>
                     <br></br>
-                    <select 
+                    <select id='category'
                         className='border-2 rounded-md my-navy-border bg-transparent p-2 w-full'
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
@@ -77,9 +77,9 @@ function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoade
                     </select>
                 </div>
                 <div className='w-full'>
-                    <label>Język:</label>
+                    <label for='language'>Język:</label>
                     <br></br>
-                    <select 
+                    <select id='language'
                         className='border-2 rounded-md my-navy-border bg-transparent p-2 w-full'
                         value={country}
                         onChange={(e) => setCountry(e.target.value)}
@@ -91,9 +91,10 @@ function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoade
                     </select>
                 </div>
                 <div className='w-full'>
-                    <label>Liczba wyników:</label>
+                    <label for='count'>Liczba wyników:</label>
                     <br></br>
-                    <select className='border-2 rounded-md my-navy-border bg-transparent p-2 w-full'
+                    <select id='count' 
+                        className='border-2 rounded-md my-navy-border bg-transparent p-2 w-full'
                         value={resultsCount}
                         onChange={(e) => setResultsCount(e.target.value)}
                     >

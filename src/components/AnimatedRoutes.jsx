@@ -4,10 +4,9 @@ import { AnimatePresence } from 'framer-motion'
 
 
 import { Homepage } from '../pages/Homepage'
-import { Polska } from '../pages/Polska'
 import { About } from '../pages/About'
 import { Explore } from '../pages/Explore'
-import { Random } from '../pages/Random'
+import { Analysis } from '../pages/Analysis'
 
 function AnimatedRoutes() {
   const location = useLocation()
@@ -15,9 +14,8 @@ function AnimatedRoutes() {
     <AnimatePresence>
         <Routes location={location} key={location.pathname} >
             <Route path="/" element={<Homepage />} />
-            <Route path="/polska" element={<Polska />} />
+            <Route path="/analiza" element={<Analysis />} />
             <Route path="/o-projekcie" element={<About />} />
-            <Route path="/random" element={<Random />} />
             <Route path="/odkrywaj" element={<Explore />} />
         </Routes>
     </AnimatePresence>
