@@ -6,7 +6,7 @@ import AnalysisForm from '../components/AnalysisForm'
 import AnalysisContent from '../components/AnalysisContent'
 
 export const Analysis = () => {
-    const [ article, setArticle ] = useState(null)            //filling var articles with data from api
+    const [ article, setArticle ] = useState(null)
     
     return (
       <motion.div 
@@ -20,15 +20,15 @@ export const Analysis = () => {
               setArticle = { setArticle }
           />
           
-        <div class='px-5 pt-5 lg:pt-10'>
-            <div class='mx-auto overflow-y-auto news-list' style={{ height: '75vh' }}>
-    
-                <AnalysisContent 
-                    article = { article }
-                />
+          <div class='px-5 pt-5 lg:pt-10'>
+              <div class='mx-auto overflow-y-auto news-list' style={{ height: '75vh' }}>
+      
+                  <AnalysisContent 
+                      article = { article }
+                  />
 
-            </div>
-        </div>
+              </div>
+          </div>
       </motion.div>
     )
   }

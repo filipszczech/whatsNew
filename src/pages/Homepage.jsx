@@ -1,7 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 export const Homepage = () => {
+  let navigate = useNavigate()
   return (
     <motion.div 
      className='grid grid-cols-1 md:grid-cols-2 w-full px-3 sm:px-5 pb-3 h-auto md:h-5/6 overflow-y-scroll'
@@ -33,7 +35,7 @@ export const Homepage = () => {
             </div>
         </div> */}
         <div className='mx-auto w-3/4'>
-            <button className='py-3 px-auto w-1/2 opacity-90 text-center text-white font-medium shadow-lg text-lg hover:scale-105 my-hover-effect my-yellow-bg rounded-sm border-gray-200'>Rozpocznij przeglądanie</button>
+            <button onClick={() => { navigate("/odkrywaj")}} className='py-3 px-auto w-1/2 opacity-90 text-center text-white font-medium shadow-lg text-lg hover:scale-105 my-hover-effect my-yellow-bg rounded-sm border-gray-200'>Rozpocznij przeglądanie</button>
         </div>
       </div>
       <div className='mt-20'>

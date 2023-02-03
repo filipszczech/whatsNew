@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Footer = () => {
   return (
-    <div className='flex flex-row justify-between absolute bottom-0 w-full px-3 sm:px-5 pb-3'>
+    <div className='flex flex-row justify-between absolute bottom-0 w-full px-3 sm:px-5 pb-3 z-50'>
       <div className="flex flex-row justify-between space-x-1 md:space-x-5">
         <a href="https://www.linkedin.com/in/filip-szcz%C4%99ch-678262234/" rel="noreferrer noreferrer" target="_blank">
           <svg className='hover:scale-105 my-hover-effect' xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"

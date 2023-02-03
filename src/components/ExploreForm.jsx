@@ -3,7 +3,7 @@ import { useState } from 'react'
 import axios from 'axios';
 
 
-function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoaded, setDataLoaded }) {
+function ExploreForm({ isLoading, setIsLoading, setArticles, dataLoaded, setDataLoaded }) {
   const [ keyWord, setKeyWord ] = useState('')
   const [ category, setCategory ] = useState('news/Politics')
   const [ country, setCountry ] = useState('eng')
@@ -16,10 +16,6 @@ function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoade
     e.preventDefault()
     setIsLoading(true)
     fetchFilteredNews()
-    setTimeout(() => {
-        setIsLoading(false)
-        setDataLoaded(true)
-      }, 2000);
   }
 
   const fetchFilteredNews = async () => {
@@ -40,6 +36,8 @@ function ExploreForm({ isLoading, setIsLoading, articles, setArticles, dataLoade
             + `&apiKey=da1595a0-0013-444e-8eb4-2e30d17dbe27`
         );
         setArticles(res.data.articles.results)
+        setDataLoaded(true)
+        setIsLoading(false)
     }
     catch(error) {
         console.log(`error: ${error}`);

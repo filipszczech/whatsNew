@@ -27,13 +27,24 @@ function ExploreContent( props ) {
         )
     }
     else{
-        return (
+        if(props.articles.length == 0){
+            return(
                 <div className='px-5 pt-5 lg:pt-10'>
-                    <div className='mx-auto overflow-y-auto news-list' style={{ height: '75vh' }}>
+                    <div className='mx-auto overflow-y-auto text-4xl flex content-center h-full font-semibold my-navy-font'>
+                        <div className='my-auto mx-auto'>Nie znaleziono pasujących treści :(</div>
+                    </div>
+                </div>
+            )
+        }
+        else{
+            return (
+                <div className='px-5 pt-5 lg:pt-10'>
+                    <div className='mx-auto overflow-y-auto news-list' style={{ height: '70vh' }}>
                         <ExploreNewsList articles = { props.articles } setSingleArticle = { props.setSingleArticle } setIsModalOpen = { props.setIsModalOpen } />
                     </div>
                 </div>
-        )
+            )
+        }
     }
 }
 

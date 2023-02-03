@@ -15,7 +15,7 @@ export const Explore = () => {
     
     return (
       <motion.div 
-          className='grid grid-cols-1 md:grid-cols-2 w-full mt-7 lg:mt-0 px-3 sm:px-5 pb-3 space-y-9 h-5/6 overflow-y-hidden'
+          className='grid grid-cols-1 md:grid-cols-2 w-full mt-7 lg:mt-0 px-3 sm:px-5 pb-3 space-y-9 md:space-y-0 h-5/6 overflow-y-hidden'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}>

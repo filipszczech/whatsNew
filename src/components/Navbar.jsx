@@ -15,6 +15,9 @@ export const Navbar = () => {
                 <button onClick={() => { navigate("/odkrywaj")}} className='py-1 px-5 text-center text-gray-100 rounded-md my-yellow-bg hover:scale-105 my-hover-effect'>Eksploruj</button>
             </div>
         </div>
+        <div className='block lg:hidden'>
+          <img alt='menu' src="https://img.icons8.com/external-jumpicon-line-ayub-irawan/32/000000/external-hamburger-basic-ui-jumpicon-line-jumpicon-line-ayub-irawan.png"/>
+        </div>
     </div>
   )
 }

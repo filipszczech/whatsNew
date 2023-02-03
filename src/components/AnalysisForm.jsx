@@ -6,8 +6,7 @@ import axios from 'axios';
 function AnalysisForm({ article, setArticle }) {
   const [ articleUrl, setArticleUrl ] = useState('')
   const [ errorActive, setErrorActive ] = useState(false)
-  const [ isLoading, setIsLoading ] = useState(false)       //waiting for data to load
-  // let errorResponse = false
+  const [ isLoading, setIsLoading ] = useState(false)
 
   const handleSubmit = (e) => {
     setErrorActive(false)
@@ -18,27 +17,28 @@ function AnalysisForm({ article, setArticle }) {
     e.preventDefault()
     setIsLoading(true)
     fetchAnalysisArticle()
-    setTimeout(() => {
-        setIsLoading(false)
-    }, 1000);
-    }
+  }
 
-    const fetchAnalysisArticle = async () => {
-        try {
-            const res = await axios.post(
-                `http://analytics.eventregistry.org/api/v1/extractArticleInfo?`
-                + `&url=${articleUrl}`
-                + `&apiKey=da1595a0-0013-444e-8eb4-2e30d17dbe27`
-            );
-            console.log(res.data);
+  const fetchAnalysisArticle = async () => {
+    try {
+        const res = await axios.post(
+            `http://analytics.eventregistry.org/api/v1/extractArticleInfo?`
+            + `&url=${articleUrl}`
+            + `&apiKey=da1595a0-0013-444e-8eb4-2e30d17dbe27`
+        );
+        if(res.data['error']){
+            setArticle('wrong')
+        }
+        else{
             setArticle(res.data)
-            
         }
-        catch(error) {
-            console.log(`error: ${error}`);
-            // errorResponse = true
-        }
+        setIsLoading(false)
+        
     }
+    catch(error) {
+        console.log(`error: ${error}`);
+    }
+  }
 
   return (
     <div className='w-3/4 mx-auto my-auto'>
